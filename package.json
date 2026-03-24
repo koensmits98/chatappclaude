@@ -1,0 +1,15 @@
+{
+  "name": "chatappclaude",
+  "version": "1.0.0",
+  "description": "Real-time chat application with React, Express, and PostgreSQL",
+  "scripts": {
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install"
+  },
+  "keywords": ["chat", "real-time", "websocket", "react", "express", "postgresql"],
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
