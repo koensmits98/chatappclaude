@@ -28,6 +28,26 @@
   opacity: 0.9;
 }
 
+.header-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.profile-button {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 2px solid white;
+  padding: 8px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.profile-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
 .logout-button {
   background: rgba(255, 255, 255, 0.2);
   color: white;

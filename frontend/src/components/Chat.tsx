@@ -3,10 +3,12 @@ import { useAuth } from '../context/AuthContext';
 import { socketService } from '../services/socket';
 import { api } from '../services/api';
 import type { Message } from '../services/api';
+import { useNavigate } from 'react-router-dom';
 import './Chat.css';
 
 export const Chat: React.FC = () => {
   const { user, logout } = useAuth();
+  const navigate = useNavigate();
   const [messages, setMessages] = useState<Message[]>([]);
   const [newMessage, setNewMessage] = useState('');
   const [systemMessage, setSystemMessage] = useState('');
@@ -137,9 +139,14 @@ export const Chat: React.FC = () => {
           <h1>Chat App</h1>
           <p className="user-info">Logged in as {user?.username}</p>
         </div>
-        <button onClick={logout} className="logout-button">
-          Logout
-        </button>
+        <div className="header-buttons">
+          <button onClick={() => navigate('/profile')} className="profile-button">
+            Profile
+          </button>
+          <button onClick={logout} className="logout-button">
+            Logout
+          </button>
+        </div>
       </div>
 
       {systemMessage && (

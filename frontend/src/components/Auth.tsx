@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 import './Auth.css';
 
 export const Auth: React.FC = () => {
@@ -8,6 +9,7 @@ export const Auth: React.FC = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const { login, signup } = useAuth();
 
@@ -22,6 +24,7 @@ export const Auth: React.FC = () => {
       } else {
         await signup({ username, password });
       }
+      navigate('/chat');
     } catch (err: any) {
       setError(err.message || 'An error occurred');
     } finally {
